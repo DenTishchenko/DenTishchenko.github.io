@@ -1,0 +1,1580 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* make sure to set some focus styles for accessibility */
+:focus {
+  outline: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type=search] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  max-width: 100%;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+[hidden] {
+  display: none;
+}
+
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-size: 100%;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+img {
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+figure {
+  margin: 0;
+}
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+form {
+  margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  white-space: normal;
+  /* 2 */
+  *margin-left: -7px;
+  /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  vertical-align: baseline;
+  /* 3 */
+  *vertical-align: middle;
+  /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+  *overflow: visible;
+  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(./fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: Medium-monts;
+  src: url(./fonts/Montserrat/Montserrat-Medium.ttf);
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url(./fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: Thin100;
+  src: url(./fonts/Roboto/Roboto-Thin.ttf);
+}
+
+header {
+  width: 100%;
+}
+
+.full {
+  width: 1440px;
+  height: 700px;
+  background-image: url(../photos/Background.png);
+  margin: 0 auto;
+}
+
+.full .top {
+  padding-left: 15%;
+  padding-right: 20%;
+  padding-top: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.full .top .logo {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.full .top .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 150px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.full .top .buttons .log {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #ffffff;
+  margin-right: 5%;
+  padding: 10px;
+}
+
+.full .top .buttons .sign {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #ffffff;
+  border: 2px solid #ffff;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+.full .center {
+  width: 470px;
+  height: 241.5px;
+  margin: 85px auto;
+  text-align: center;
+}
+
+.full .center .share {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 52px;
+  color: #ffffff;
+}
+
+.full .center .undershare {
+  font-family: "Thin100", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 24px;
+  color: #f7f3f2;
+  margin-top: 28.5px;
+}
+
+.full .center .find {
+  width: 225px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+  background: #ff4e50;
+  border-radius: 40px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+@media screen and (max-width: 1439px) {
+  .full {
+    width: 768px;
+    height: 700px;
+    background-image: url(../photos/Background.png);
+    margin: 0 auto;
+    background-position: center;
+  }
+  .full .top {
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .full .center {
+    width: 470px;
+    height: 241.5px;
+    margin: 150px auto;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .full {
+    width: 320px;
+    height: 540px;
+    background-image: url(../photos/Background.png);
+    margin: 0 auto;
+    background-position: center;
+  }
+  .full .top {
+    padding-left: 15%;
+    padding-right: 20%;
+    padding-top: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .full .top .logo {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 87px;
+  }
+  .full .top .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 150px;
+  }
+  .full .top .buttons .log {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #ffffff;
+    margin-right: 5%;
+    padding: 10px;
+  }
+  .full .top .buttons .sign {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #ffffff;
+    border: 2px solid #ffff;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px;
+  }
+  .full .center {
+    width: 320px;
+    height: 241.5px;
+    margin: 26px auto;
+    text-align: center;
+  }
+  .full .center .share {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: #ffffff;
+  }
+  .full .center .undershare {
+    width: 276px;
+    font-family: "Thin100", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    color: #f7f3f2;
+    margin: 28.5px auto;
+  }
+  .full .center .find {
+    width: 225px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    background: #ff4e50;
+    border-radius: 40px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+}
+
+main {
+  width: 100%;
+}
+
+.how {
+  width: 1440px;
+  margin: 89px auto;
+}
+
+.how .dreamshare {
+  font-family: "Medium-monts", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  color: #444444;
+}
+
+.how .steps {
+  width: 940px;
+  height: 400px;
+  margin: 35px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.how .steps .step1 {
+  width: 300px;
+  height: 400px;
+  background-image: url(../photos/Step1.png);
+}
+
+.how .steps .step2 {
+  width: 300px;
+  height: 400px;
+  background-image: url(../photos/Step2.png);
+}
+
+.how .steps .step3 {
+  width: 300px;
+  height: 400px;
+  background-image: url(../photos/Step3.png);
+}
+
+.how .steps .texts {
+  margin-top: 219px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.how .steps .marg2 {
+  margin-top: 250px;
+}
+
+.how .steps .text1 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  color: #ffff;
+  background: #ff4e50;
+  border-radius: 40px;
+  width: 70px;
+  padding: 5px;
+  text-align: center;
+}
+
+.how .steps .text2 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: #ffff;
+  margin-top: 18px;
+}
+
+.how .steps .text3 {
+  font-family: "Thin100", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  color: #e3e3e3;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1439px) {
+  .how {
+    width: 768px;
+    margin: 89px auto;
+  }
+  .how .steps {
+    width: 748px;
+    height: 400px;
+    margin: 35px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .how .steps .step1 {
+    width: 236px;
+    height: 400px;
+    background-image: url(../photos/Step1.png);
+  }
+  .how .steps .step2 {
+    width: 236px;
+    height: 400px;
+    background-image: url(../photos/Step2.png);
+  }
+  .how .steps .step3 {
+    width: 236px;
+    height: 400px;
+    background-image: url(../photos/Step3.png);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .how {
+    width: 320px;
+    margin: 89px auto;
+  }
+  .how .steps {
+    width: 300px;
+    height: 750px;
+    margin: 35px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .how .steps .step1 {
+    width: 300px;
+    height: 240px;
+    background-image: url(../photos/Step1img.png);
+  }
+  .how .steps .step2 {
+    width: 300px;
+    height: 240px;
+    background-image: url(../photos/Step2img.png);
+  }
+  .how .steps .step3 {
+    width: 300px;
+    height: 240px;
+    background-image: url(../photos/Step3img.png);
+  }
+  .how .steps .texts {
+    margin-top: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .how .steps .marg1 {
+    margin-top: 64px;
+  }
+  .how .steps .marg2 {
+    margin-top: 95px;
+  }
+  .how .steps .marg3 {
+    margin-top: 69px;
+  }
+  .how .steps .text1 {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    color: #ffff;
+    background: #ff4e50;
+    border-radius: 40px;
+    width: 70px;
+    padding: 5px;
+    text-align: center;
+  }
+  .how .steps .text2 {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #ffff;
+    margin-top: 18px;
+  }
+  .how .steps .text3 {
+    font-family: "Thin100", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    color: #e3e3e3;
+    margin-top: 10px;
+  }
+}
+
+.meetall {
+  width: 1440px;
+  margin: 89px auto;
+}
+
+.meetall .meet {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.meetall .meet .meettext {
+  font-family: "Medium-monts", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  color: #444444;
+}
+
+.meetall .meet .two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.meetall .meet .two .first,
+.meetall .meet .two .second {
+  width: 475px;
+  height: 205px;
+  margin-top: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.meetall .meet .two .first .photo1,
+.meetall .meet .two .first .photo2,
+.meetall .meet .two .second .photo1,
+.meetall .meet .two .second .photo2 {
+  width: 221px;
+  height: 205px;
+}
+
+.meetall .meet .two .first .photo1 .img1,
+.meetall .meet .two .first .photo2 .img1,
+.meetall .meet .two .second .photo1 .img1,
+.meetall .meet .two .second .photo2 .img1 {
+  margin-left: 50.5px;
+}
+
+.meetall .meet .two .first .photo1 .brad,
+.meetall .meet .two .first .photo2 .brad,
+.meetall .meet .two .second .photo1 .brad,
+.meetall .meet .two .second .photo2 .brad {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: #444444;
+  text-align: center;
+  margin-top: 17px;
+}
+
+.meetall .meet .two .first .photo1 .base,
+.meetall .meet .two .first .photo2 .base,
+.meetall .meet .two .second .photo1 .base,
+.meetall .meet .two .second .photo2 .base {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  color: #666666;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.meetall .meet .see {
+  width: 180px;
+  margin: 55px auto;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: #ff4e50;
+  border: 2px solid #ff4e50;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+@media screen and (max-width: 1439px) {
+  .meetall {
+    width: 768px;
+    margin: 95px auto;
+  }
+  .meetall .meet {
+    width: 492px;
+    margin: 0 auto;
+  }
+  .meetall .meet .meettext {
+    font-size: 22px;
+  }
+  .meetall .meet .two {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .meetall {
+    width: 320px;
+    margin: 36px auto;
+  }
+  .meetall .meet {
+    width: 280px;
+    margin: 0 auto;
+  }
+  .meetall .meet .meettext {
+    font-size: 22px;
+  }
+  .meetall .meet .two {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .meetall .meet .two .first,
+  .meetall .meet .two .second {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 280px;
+    height: 436px;
+  }
+  .meetall .meet .two .first .photo1,
+  .meetall .meet .two .first .photo2,
+  .meetall .meet .two .second .photo1,
+  .meetall .meet .two .second .photo2 {
+    margin: auto;
+  }
+}
+
+.discover {
+  width: 1440px;
+  margin: 95px auto;
+}
+
+.discover .discinto {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.discover .discinto .disctext {
+  font-family: "Medium-monts", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  color: #444444;
+}
+
+.discover .discinto .photosdisc {
+  margin-top: 35px;
+}
+
+.discover .discinto .photosdisc .container {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.discover .discinto .photosdisc .container .row {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0;
+}
+
+.discover .discinto .photosdisc .container .image1 {
+  background-image: url(../photos/Sport.png);
+  border-radius: 4px;
+}
+
+.discover .discinto .photosdisc .container .image2 {
+  background-image: url(../photos/Healath.png);
+  border-radius: 4px;
+}
+
+.discover .discinto .photosdisc .container .image3 {
+  background-image: url(../photos/Extreme.png);
+  border-radius: 4px;
+}
+
+.discover .discinto .photosdisc .container .image4 {
+  background-image: url(../photos/Games.png);
+  border-radius: 4px;
+}
+
+.discover .discinto .photosdisc .container .image5 {
+  background-image: url(../photos/Culture.png);
+  border-radius: 4px;
+}
+
+.discover .discinto .photosdisc .container .image6 {
+  background-image: url(../photos/Enjomet.png);
+  border-radius: 4px;
+}
+
+.discover .discinto .photosdisc .container .image7 {
+  background-image: url(../photos/Travel.png);
+  border-radius: 4px;
+}
+
+.discover .discinto .photosdisc .container .textds {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.discover .discinto .photosdisc .container .centtxt {
+  width: 300px;
+  height: 310px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.discover .discinto .photosdisc .container .margin {
+  margin-top: 20px;
+}
+
+.discover .discinto .photosdisc .container .fardfg {
+  width: 620px;
+  height: 310px;
+}
+
+@media screen and (max-width: 1439px) {
+  .discover {
+    width: 768px;
+  }
+  .discover .discinto {
+    width: 748px;
+  }
+  .discover .discinto .disctext {
+    font-size: 22px;
+  }
+  .discover .discinto .photosdisc {
+    margin-top: 35px;
+  }
+  .discover .discinto .photosdisc .container {
+    margin: 0 auto;
+    padding: 0;
+  }
+  .discover .discinto .photosdisc .container .row {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .discover .discinto .photosdisc .container .centtxt {
+    width: 236px;
+    height: 310px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .discover .discinto .photosdisc .container .fardfg {
+    width: 492px;
+    height: 310px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .discover {
+    width: 320px;
+  }
+  .discover .discinto {
+    width: 300px;
+  }
+  .discover .discinto .disctext {
+    font-size: 22px;
+  }
+  .discover .discinto .photosdisc {
+    margin-top: 35px;
+  }
+  .discover .discinto .photosdisc .container {
+    margin: 0 auto;
+    padding: 0;
+  }
+  .discover .discinto .photosdisc .container .row {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .discover .discinto .photosdisc .container .centtxt {
+    width: 300px;
+    height: 120px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-position: center;
+    margin-top: 10px;
+  }
+  .discover .discinto .photosdisc .container .margin {
+    margin-top: 0px;
+  }
+  .discover .discinto .photosdisc .container .fardfg {
+    width: 300px;
+    height: 120px;
+    background-size: cover;
+  }
+  .discover .discinto .photosdisc .container .pos {
+    background-size: inherit;
+    background-position-y: 70%;
+  }
+  .discover .discinto .photosdisc .container .pos1 {
+    background-position-y: 30%;
+  }
+  .discover .discinto .photosdisc .container .pos3 {
+    background-position-y: 10%;
+  }
+}
+
+.create {
+  width: 1440px;
+  margin: 87px auto;
+}
+
+.create .creatall {
+  width: 482px;
+  margin: 0 auto;
+}
+
+.create .creatall .creattext {
+  font-family: "Medium-monts", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  color: #444444;
+}
+
+.create .creatall .hi {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  text-align: center;
+  color: #666666;
+  margin-top: 43px;
+}
+
+.create .creatall .buttons {
+  margin-top: 25px;
+}
+
+.create .creatall .buttons .but {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.create .creatall .buttons .but .entering {
+  width: 299px;
+  height: 40px;
+  border: 1px solid #d4d4d4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.073313);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.073313);
+  border-radius: 3px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  color: #999999;
+  padding: 14px;
+}
+
+.create .creatall .buttons .but .submitting {
+  width: 172px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+  background: #ff4e50;
+  border-radius: 40px;
+  border: 0px;
+}
+
+@media screen and (max-width: 1439px) {
+  .create {
+    width: 768px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .create {
+    width: 320px;
+    margin: 35px auto;
+  }
+  .create .creatall {
+    width: 320px;
+    margin: 0 auto;
+  }
+  .create .creatall .creattext {
+    font-family: "Medium-monts", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    color: #444444;
+  }
+  .create .creatall .hi {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    color: #666666;
+    margin-top: 43px;
+  }
+  .create .creatall .buttons {
+    margin-top: 15px;
+  }
+  .create .creatall .buttons .but {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .create .creatall .buttons .but .entering {
+    width: 280px;
+    height: 40px;
+    border: 1px solid #d4d4d4;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.073313);
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.073313);
+    border-radius: 3px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    color: #999999;
+    padding: 14px;
+    margin: auto;
+  }
+  .create .creatall .buttons .but .submitting {
+    width: 280px;
+    height: 40px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    background: #ff4e50;
+    border-radius: 40px;
+    border: 0px;
+    margin: 10px auto;
+  }
+}
+
+.line {
+  width: 1440px;
+  background: #ff4e50;
+  margin: auto;
+}
+
+.foot {
+  max-width: 1440px;
+  margin: 0;
+  padding: 0;
+  margin: 40px auto;
+}
+
+.foot .wth {
+  width: 950px;
+  margin: auto;
+}
+
+.foot .wth .dream {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: #ff4e50;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.foot .wth .comp {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: #444444;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.foot .wth .comp .gg {
+  margin: 0;
+  padding: 0;
+  max-width: 1500px;
+  margin-top: 11px;
+}
+
+.foot .wth .comp .gg .change {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.foot .wth .comp .gg .change .effect {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  color: #999999;
+  margin-top: 10px;
+}
+
+.foot .wth .part {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: #444444;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.foot .wth .design {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.foot .wth .design .des {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  color: #cccccc;
+}
+
+.foot .wth .design .wth3 {
+  width: 110px;
+  height: 24px;
+  margin-top: 7px;
+}
+
+.wth1 {
+  max-width: 1500px;
+}
+
+hr:not([size]) {
+  height: 2px;
+}
+
+@media screen and (max-width: 1439px) {
+  .line {
+    width: 768px;
+    background: #ff4e50;
+    margin: auto;
+  }
+  .foot {
+    max-width: 768px;
+    margin: 0;
+    padding: 0;
+    margin: 40px auto;
+  }
+  .foot .wth {
+    width: 700px;
+    margin: auto;
+  }
+  .foot .wth .design {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .foot .wth .design .des {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    color: #cccccc;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .foot .wth .design .wth3 {
+    width: 110px;
+    height: 24px;
+    margin-top: 7px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .line {
+    width: 320px;
+    background: #ff4e50;
+    margin: auto;
+  }
+  .foot {
+    max-width: 320px;
+    margin: 0;
+    padding: 0;
+    margin: 19px auto;
+  }
+  .foot .wth {
+    width: 320px;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .foot .wth .dream {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #ff4e50;
+    text-align: center;
+  }
+  .foot .wth .comp {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #444444;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    margin-top: 13px;
+  }
+  .foot .wth .comp .gg {
+    margin: 0;
+    padding: 0;
+    max-width: 1500px;
+  }
+  .foot .wth .comp .gg .change {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .foot .wth .comp .gg .change .flex1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .foot .wth .comp .gg .change .flex2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .foot .wth .comp .gg .change .effect {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    color: #999999;
+    margin-top: 10px;
+  }
+  .foot .wth .part {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #444444;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    margin-top: 6px;
+  }
+  .foot .wth .design {
+    display: block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  .foot .wth .design .des {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    color: #cccccc;
+    text-align: center;
+    margin-top: 14px;
+  }
+  .foot .wth .design .wth3 {
+    width: 110px;
+    height: 24px;
+    margin-top: 7px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
